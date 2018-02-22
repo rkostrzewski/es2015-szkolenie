@@ -1,4 +1,7 @@
-var productsEndpoint = config.apiUrl + '/products'
+import BaseModel from './base.js'
+import { apiUrl } from '../config.js'
+
+var productsEndpoint = apiUrl + '/products'
 
 class ProductModel extends BaseModel {
   getAllProducts (callback) {
@@ -18,3 +21,5 @@ class ProductModel extends BaseModel {
     req.send(null);
   }
 }
+
+export default ProductModel

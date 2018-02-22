@@ -1,3 +1,5 @@
+import BaseModel from './base.js'
+
 class CartModel extends BaseModel {
   constructor () {
     super()
@@ -27,3 +29,5 @@ class CartModel extends BaseModel {
     this.onChange()
   }
 }
+
+export default CartModel

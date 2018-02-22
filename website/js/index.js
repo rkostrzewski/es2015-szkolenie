@@ -1,3 +1,8 @@
+import CartModel from './models/cart.js'
+import ProductModel from './models/product.js'
+
+import CartController from './controllers/cart.js'
+
 var cartModel = new CartModel()
 var productModel = new ProductModel()
 

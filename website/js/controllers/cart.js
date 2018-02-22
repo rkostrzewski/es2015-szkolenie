@@ -14,3 +14,5 @@ class CartController {
     this.view.render(products)
   }
 }
+
+export default CartController
