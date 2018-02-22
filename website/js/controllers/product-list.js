@@ -1,4 +1,4 @@
-class ProductListController {
+export default class ProductListController {
   constructor (view, models) {
     this.cartModel = models.cart
     this.productModel = models.product

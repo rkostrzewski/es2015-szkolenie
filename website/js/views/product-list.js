@@ -1,4 +1,6 @@
-class ProductListView extends BaseView {
+import BaseView from './base.js'
+
+export default class ProductListView extends BaseView {
   renderProductCard (product) {
     var id = product.id
     var name = product.name

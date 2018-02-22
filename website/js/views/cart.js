@@ -1,4 +1,6 @@
-class CartView extends BaseView {
+import BaseView from './base.js'
+
+export default class CartView extends BaseView {
   render (products) {
     var productList = []
   
