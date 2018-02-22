@@ -1,31 +1,29 @@
-function CartModel () {
-  BaseModel.call(this)
-  this.products = {}
-}
-
-CartModel.prototype = Object.create(BaseModel.prototype);
-CartModel.prototype.constructor = CartModel;
-
-CartModel.prototype.clear = function () {
-  this.products = {}
-  this.onChange()
-}
-
-CartModel.prototype.add = function (product) {
-  var cartProduct = this.products[product.id] || Object.create(product)
-
-  if (cartProduct.quantity) {
-    cartProduct.quantity = cartProduct.quantity + 1
-  } else {
-    cartProduct.quantity = 1
+class CartModel extends BaseModel {
+  constructor () {
+    super()
+    this.products = {}
   }
 
-  this.products[product.id] = cartProduct
-  this.onChange()
-}
+  clear () {
+    this.products = {}
+    this.onChange()
+  }
 
-CartModel.prototype.remove = function (productId) {
-  delete this.products[productId]
-  this.onChange()
-}
+  add (product) {
+    var cartProduct = this.products[product.id] || Object.create(product)
+  
+    if (cartProduct.quantity) {
+      cartProduct.quantity = cartProduct.quantity + 1
+    } else {
+      cartProduct.quantity = 1
+    }
+  
+    this.products[product.id] = cartProduct
+    this.onChange()
+  }
 
+  remove (productId) {
+    delete this.products[productId]
+    this.onChange()
+  }
+}

@@ -1,23 +1,25 @@
-function BaseModel () {
-  this.subscribers = []
-}
-
-BaseModel.prototype.onChange = function () {
-  for (var i = 0; i < this.subscribers.length; i++) {
-    var listener = this.subscribers[i]
-
-    listener(this.products)
+class BaseModel {
+  constructor () {
+    this.subscribers = []
   }
-}
 
-BaseModel.prototype.listen = function (listener) {
-  this.subscribers.push(listener)
-}
+  onChange () {
+    for (var i = 0; i < this.subscribers.length; i++) {
+      var listener = this.subscribers[i]
+  
+      listener(this.products)
+    }
+  }
 
-BaseModel.prototype.unlisten = function (listener) {
-  var listenerIndex = this.subscribers.indexOf(listener)
+  listen (listener) {
+    this.subscribers.push(listener)
+  }
 
-  if (listenerIndex > -1) {
-    this.subscribers.splice(listenerIndex, 1)
+  unlisten (listener) {
+    var listenerIndex = this.subscribers.indexOf(listener)
+  
+    if (listenerIndex > -1) {
+      this.subscribers.splice(listenerIndex, 1)
+    }
   }
 }
