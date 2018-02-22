@@ -1,6 +1,8 @@
-function BaseView(host) {
-  if (!host) {
-    throw new Error('Invalid host dom node provided to ' + this.constructor.name)
+class BaseView {
+  constructor (host) {
+    if (!host) {
+      throw new Error('Invalid host dom node provided to ' + this.constructor.name)
+    }
+    this.host = host
   }
-  this.host = host
 }
